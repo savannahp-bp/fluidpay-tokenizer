@@ -1,5 +1,5 @@
 {
-  "name": "tokenizer",
+  "name": "fluidpay-tokenizer",
   "version": "1.0.0",
   "main": "dist/tokenizer.js",
   "types": "dist/index.d.ts",
