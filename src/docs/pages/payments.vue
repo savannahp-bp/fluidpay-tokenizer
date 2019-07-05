@@ -12,7 +12,7 @@ export default Vue.extend({
     }
   },
   mounted() {
-    this.example = new Tokenizer({
+     this.example = new Tokenizer({
       apikey: testapikey,
       container: this.$refs.example as HTMLDivElement,
       submission: (resp: any) => {
@@ -21,7 +21,7 @@ export default Vue.extend({
       settings: {
         payment: {
           showTitle: true,
-          types: ['card', 'ach'],
+          types: ['card', 'ach', 'plaid'],
           ach: {
             sec_code: 'web'
           }
@@ -44,6 +44,7 @@ export default Vue.extend({
         border-radius: 4px;
         background-color: #ffffff;
         padding: 5px 8px 5px 8px;
+        margin-top: 10px;
       }
     }
   }
@@ -62,7 +63,7 @@ export default Vue.extend({
           },
           settings: {
             payment: {
-              types: ['card', 'ach'], // Default ['card']
+              types: ['card', 'ach', 'plaid'], // Default ['card']
               ach: {
                 sec_code: 'web' // Default web - web, ccd, ppd, tel
               }
