@@ -24,6 +24,9 @@ export default Vue.extend({
           types: ['card', 'ach', 'plaid'],
           ach: {
             sec_code: 'web'
+          },
+          plaid: {
+            req_id: ''
           }
         }
       }
@@ -66,6 +69,9 @@ export default Vue.extend({
               types: ['card', 'ach', 'plaid'], // Default ['card']
               ach: {
                 sec_code: 'web' // Default web - web, ccd, ppd, tel
+              },
+              plaid: {
+                req_id: ''
               }
             }
           }
