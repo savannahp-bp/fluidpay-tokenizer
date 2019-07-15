@@ -5,13 +5,13 @@ import testapikey from '@/docs/helpers/testapikey.ts'
 
 export default Vue.extend({
   name: 'Payments',
-  data() {
+  data () {
     return {
       example: (null as any),
       exampleResponse: ''
     }
   },
-  mounted() {
+  mounted () {
     this.example = new Tokenizer({
       apikey: testapikey,
       container: this.$refs.example as HTMLDivElement,

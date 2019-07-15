@@ -12,7 +12,7 @@ export default Vue.extend({
 
 <style lang="scss">
   @import './docs/assets/scss/_variables.scss';
-  
+
   .container {
     .bluebar {
       position: absolute;
