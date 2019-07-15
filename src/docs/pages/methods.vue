@@ -5,7 +5,7 @@ import testapikey from '@/docs/helpers/testapikey.ts'
 
 export default Vue.extend({
   name: 'Methods',
-  data() {
+  data () {
     return {}
   }
 })

@@ -1,8 +1,27 @@
 {
-  "editor.formatOnSave": false,
-  "extensions.ignoreRecommendations": false,
-  "window.zoomLevel": 0,
-  "editor.detectIndentation": false,
   "editor.tabSize": 2,
-  "tslint.autoFixOnSave": true
+  "editor.formatOnSave": false,
+  "vetur.format.defaultFormatter.js": "vscode-typescript",
+  "vetur.format.defaultFormatter.ts": "vscode-typescript",
+  "vetur.format.defaultFormatter.html": "js-beautify-html",
+  "vetur.format.defaultFormatter.scss": "prettier",
+  "eslint.autoFixOnSave": true,
+  "eslint.validate": [
+    {
+      "language": "vue",
+      "autoFix": true
+    },
+    {
+      "language": "html",
+      "autoFix": true
+    },
+    {
+      "language": "javascript",
+      "autoFix": true
+    },
+    {
+      "language": "typescript",
+      "autoFix": true
+    }
+  ]
 }

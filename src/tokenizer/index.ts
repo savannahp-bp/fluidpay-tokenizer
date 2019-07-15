@@ -30,7 +30,7 @@ export default class Tokenizer {
   public container: HTMLDivElement
   public settings: Settings = { id: '', apikey: '' }
 
-  constructor(info: Constructor) {
+  constructor (info: Constructor) {
     this.validate(info)
 
     // Make sure apikey is set
@@ -59,13 +59,13 @@ export default class Tokenizer {
 
     // Set values
     this.id = this.uuid()
-    if (typeof info.settings === 'object') {this.settings = info.settings}
+    if (typeof info.settings === 'object') { this.settings = info.settings }
 
     // Set callbacks
-    if (info.onLoad) {this.onLoad = info.onLoad}
-    if (info.submission) {this.submission = info.submission}
+    if (info.onLoad) { this.onLoad = info.onLoad }
+    if (info.submission) { this.submission = info.submission }
 
-    window.addEventListener('message', (e: any) => {this.messageListener(e)})
+    window.addEventListener('message', (e: any) => { this.messageListener(e) })
 
     this.iframe = this.buildIframe()
     this.iframe.onload = () => {
@@ -81,9 +81,9 @@ export default class Tokenizer {
   }
 
   // Only here because it used to exist
-  public create() {return}
+  public create () { }
 
-  public validate(info: Constructor) {
+  public validate (info: Constructor) {
     let el: HTMLDivElement
     if (typeof info.container === 'string') {
       el = document.querySelector(info.container) as any as HTMLDivElement
@@ -94,7 +94,7 @@ export default class Tokenizer {
   }
 
   // Post message to iframe
-  public submit() {
+  public submit () {
     this.postMessage({
       event: 'submit',
       data: {}
@@ -102,26 +102,26 @@ export default class Tokenizer {
   }
 
   // Pass exp date to be set inside form
-  public setExpDate(expDate: string) {
+  public setExpDate (expDate: string) {
     this.postMessage({
       event: 'setExpDate',
-      data: {value: expDate}
+      data: { value: expDate }
     })
   }
 
   // Communicate back to child
-  public postMessage(msg: Message): void {
+  public postMessage (msg: Message): void {
     const w = this.iframe.contentWindow
     if (w !== null) {
       const data = JSON.stringify(msg)
       w.postMessage(data, '*')
     }
   }
-  public onLoad: () => void = () => {return}
-  public submission: (response: any) => void = () => {return}
+  public onLoad: () => void = () => {}
+  public submission: (response: any) => void = () => {}
 
-  private uuid(): string {
-    function s4() {
+  private uuid (): string {
+    function s4 () {
       return Math.floor((1 + Math.random()) * 0x10000)
         .toString(16)
         .substring(1)
@@ -129,7 +129,7 @@ export default class Tokenizer {
     return s4() + s4() + '-' + s4() + '-' + s4() + '-' + s4() + '-' + s4() + s4() + s4()
   }
 
-  private buildIframe(): HTMLIFrameElement {
+  private buildIframe (): HTMLIFrameElement {
     const iframe = document.createElement('iframe')
     iframe.src = this.url
 
@@ -151,20 +151,20 @@ export default class Tokenizer {
     return iframe
   }
 
-  private setSettings(settings: Settings) {
+  private setSettings (settings: Settings) {
     this.postMessage({
       event: 'setSettings',
       data: settings
     })
   }
 
-  private updateHeight(height: string) {
+  private updateHeight (height: string) {
     if (height) {
       this.iframe.style.height = height + 'px'
     }
   }
 
-  private messageListener(e: MessageEvent) {
+  private messageListener (e: MessageEvent) {
     try {
       const msg: Message = JSON.parse(e.data)
       const id = msg.id
@@ -182,7 +182,7 @@ export default class Tokenizer {
           break
       }
     } catch (e) {
-      return
+
     }
   }
 }

@@ -17,7 +17,7 @@ new Normalizer({
 })
 
 Vue.mixin({
-  updated() {
+  updated () {
     Prism.highlightAll()
   }
 })

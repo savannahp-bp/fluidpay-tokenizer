@@ -6,7 +6,7 @@ Vue.use(VueRouter)
 export default new VueRouter({
   mode: 'history',
   routes: [
-    { path: '/', redirect: '/home'},
+    { path: '/', redirect: '/home' },
     {
       path: '/home',
       component: () => import('@/docs/pages/home.vue')
