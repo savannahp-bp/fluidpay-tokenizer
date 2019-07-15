@@ -5,7 +5,7 @@ export default Vue.extend({})
 
 <style lang="scss">
   @import './assets/scss/_variables.scss';
-  
+
   .header {
     display: flex;
     flex-direction: column;
