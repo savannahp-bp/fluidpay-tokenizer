@@ -47,7 +47,7 @@ export default Vue.extend({
         border-radius: 4px;
         background-color: #ffffff;
         padding: 5px 8px 5px 8px;
-        margin-top: 10px;
+        // margin-top: 10px;
       }
     }
   }
