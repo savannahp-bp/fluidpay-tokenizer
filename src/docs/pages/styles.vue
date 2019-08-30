@@ -5,7 +5,7 @@ import testapikey from '@/docs/helpers/testapikey.ts'
 
 export default Vue.extend({
   name: 'Styles',
-  data() {
+  data () {
     return {
       exampleBubble: (null as any),
       exampleBubbleResponse: '',
@@ -14,7 +14,7 @@ export default Vue.extend({
       exampleLineResponse: ''
     }
   },
-  mounted() {
+  mounted () {
     this.exampleBubble = new Tokenizer({
       apikey: testapikey,
       container: document.querySelector('#exampleBubble') as HTMLDivElement,
@@ -103,7 +103,6 @@ export default Vue.extend({
     }
   }
 </style>
-
 
 <template>
   <div class="main styled">

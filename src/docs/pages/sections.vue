@@ -5,13 +5,13 @@ import testapikey from '@/docs/helpers/testapikey.ts'
 
 export default Vue.extend({
   name: 'Sections',
-  data() {
+  data () {
     return {
       exampleFull: (null as any),
       exampleFullResponse: ''
     }
   },
-  mounted() {
+  mounted () {
     this.exampleFull = new Tokenizer({
       apikey: testapikey,
       container: document.querySelector('#exampleFull') as HTMLDivElement,
