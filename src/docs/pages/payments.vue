@@ -21,7 +21,7 @@ export default Vue.extend({
       settings: {
         payment: {
           showTitle: true,
-          types: ['card', 'ach'],
+          types: ['card', 'ach', 'plaid'],
           ach: {
             sec_code: 'web'
           }
@@ -62,7 +62,7 @@ export default Vue.extend({
           },
           settings: {
             payment: {
-              types: ['card', 'ach'], // Default ['card']
+              types: ['card', 'ach', 'plaid'], // Default ['card']
               ach: {
                 sec_code: 'web' // Default web - web, ccd, ppd, tel
               }
