@@ -96,6 +96,7 @@ export default Vue.extend({
             // Payment section settings
             payment: {
               showTitle: true, // Show section title
+              placeholderCreditCard: '', // Placeholder text for credit card input field
               showExpDate: true, // Show expiration date
               showCVV: true // Show CVV
             }
