@@ -30,6 +30,11 @@ export default Vue.extend({
             console.log('iframe loaded')
           },
 
+          // Callback to identify when a valid cc has been inputed
+          validCard: (valid: boolean) => {
+            console.log(valid)
+          },
+
           // Callback after payment was submitted
           submission: (resp) => {
             console.log(resp)

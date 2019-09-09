@@ -8,6 +8,7 @@ export interface Constructor {
   container: HTMLDivElement
   paymentTypes?: string[]
   onLoad?: () => void
+  validCard?: (valid: boolean) => void
   submission: (response: any) => void
   settings?: {[key: string]: any}
 }
@@ -63,6 +64,7 @@ export default class Tokenizer {
 
     // Set callbacks
     if (info.onLoad) { this.onLoad = info.onLoad }
+    if (info.validCard) { this.validCard = info.validCard }
     if (info.submission) { this.submission = info.submission }
 
     window.addEventListener('message', (e: any) => { this.messageListener(e) })
@@ -118,6 +120,7 @@ export default class Tokenizer {
     }
   }
   public onLoad: () => void = () => {}
+  public validCard: (valid: boolean) => void = () => {}
   public submission: (response: any) => void = () => {}
 
   private uuid (): string {
@@ -176,6 +179,9 @@ export default class Tokenizer {
       switch (event) {
         case 'submission':
           this.submission(data)
+          break
+        case 'validCard':
+          this.validCard(true)
           break
         case 'setHeight':
           this.updateHeight(data.height)
