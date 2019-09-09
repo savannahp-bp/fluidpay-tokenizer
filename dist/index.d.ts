@@ -7,6 +7,7 @@ export interface Constructor {
     container: HTMLDivElement;
     paymentTypes?: string[];
     onLoad?: () => void;
+    validCard?: (valid: boolean) => void;
     submission: (response: any) => void;
     settings?: {
         [key: string]: any;
@@ -33,6 +34,7 @@ export default class Tokenizer {
     setExpDate(expDate: string): void;
     postMessage(msg: Message): void;
     onLoad: () => void;
+    validCard: (valid: boolean) => void;
     submission: (response: any) => void;
     private uuid;
     private buildIframe;
