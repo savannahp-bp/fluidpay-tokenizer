@@ -119,6 +119,7 @@ export default class Tokenizer {
       w.postMessage(data, '*')
     }
   }
+
   public onLoad: () => void = () => {}
   public validCard: (valid: boolean) => void = () => {}
   public submission: (response: any) => void = () => {}

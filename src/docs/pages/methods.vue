@@ -1,7 +1,5 @@
 <script lang="ts">
 import Vue from 'vue'
-import Tokenizer, { Constructor } from '@/tokenizer'
-import testapikey from '@/docs/helpers/testapikey.ts'
 
 export default Vue.extend({
   name: 'Methods',
