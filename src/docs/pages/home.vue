@@ -15,7 +15,10 @@ export default Vue.extend({
     this.example = new Tokenizer({
       apikey: testapikey,
       container: this.$refs.example as HTMLDivElement,
-      submission: (resp: any) => { this.exampleResponse = resp }
+      submission: (resp: any) => { this.exampleResponse = resp },
+      validCard: (card: any) => {
+        console.log(card)
+      }
     })
   }
 })
