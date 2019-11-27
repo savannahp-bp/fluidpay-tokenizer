@@ -1,7 +1,5 @@
 <script lang="ts">
 import Vue from 'vue'
-import Tokenizer, { Constructor } from '@/tokenizer'
-import testapikey from '@/docs/helpers/testapikey.ts'
 
 export default Vue.extend({
   name: 'Methods',
@@ -31,8 +29,10 @@ export default Vue.extend({
           },
 
           // Callback to identify when a valid cc has been inputed
-          validCard: (valid: boolean) => {
-            console.log(valid)
+          validCard: (card: object) => {
+            console.log(card)
+            // card.isValid // Boolean
+            // card.bin // Object of bin data
           },
 
           // Callback after payment was submitted

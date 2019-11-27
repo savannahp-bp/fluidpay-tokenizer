@@ -1,6 +1,6 @@
 <script lang="ts">
 import Vue from 'vue'
-import Tokenizer, { Constructor } from '@/tokenizer'
+import Tokenizer from '@/tokenizer'
 import testapikey from '@/docs/helpers/testapikey.ts'
 
 export default Vue.extend({
@@ -27,10 +27,10 @@ export default Vue.extend({
             color: '#ffffff'
           },
           input: {
-            'color': '#ffffff',
+            color: '#ffffff',
             'border-radius': '8px',
             'background-color': 'rgba(255, 255, 255, .2)',
-            'border': 'none'
+            border: 'none'
           }
         }
       }
@@ -44,19 +44,19 @@ export default Vue.extend({
       },
       settings: {
         styles: {
-          'body': {
+          body: {
             color: '#ffffff'
           },
-          'input': {
-            'color': '#ffffff',
+          input: {
+            color: '#ffffff',
             'padding-left': '0px',
             'border-radius': '0px',
-            'border': 'none',
+            border: 'none',
             'border-bottom': 'solid 1px #ffffff',
             'background-color': '#525f7f'
           },
           '.payment .cvv input': {
-            'border': 'solid 1px #ffffff',
+            border: 'solid 1px #ffffff',
             'padding-left': '6px'
           }
         }

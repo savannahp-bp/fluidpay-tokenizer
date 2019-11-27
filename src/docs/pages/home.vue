@@ -1,6 +1,6 @@
 <script lang="ts">
 import Vue from 'vue'
-import Tokenizer, { Constructor } from '@/tokenizer'
+import Tokenizer from '@/tokenizer'
 import testapikey from '@/docs/helpers/testapikey.ts'
 
 export default Vue.extend({
@@ -8,14 +8,16 @@ export default Vue.extend({
   data () {
     return {
       example: (null as any),
-      exampleResponse: ''
+      exampleResponse: '',
+      validCard: (null as any)
     }
   },
   mounted () {
     this.example = new Tokenizer({
       apikey: testapikey,
       container: this.$refs.example as HTMLDivElement,
-      submission: (resp: any) => { this.exampleResponse = resp }
+      submission: (resp: any) => { this.exampleResponse = resp },
+      validCard: (card: any) => { this.validCard = card }
     })
   }
 })

@@ -34,7 +34,7 @@ export default class Tokenizer {
     setExpDate(expDate: string): void;
     postMessage(msg: Message): void;
     onLoad: () => void;
-    validCard: (valid: boolean) => void;
+    validCard: (card: any) => void;
     submission: (response: any) => void;
     private uuid;
     private buildIframe;

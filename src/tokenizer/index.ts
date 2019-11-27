@@ -119,8 +119,9 @@ export default class Tokenizer {
       w.postMessage(data, '*')
     }
   }
+
   public onLoad: () => void = () => {}
-  public validCard: (valid: boolean) => void = () => {}
+  public validCard: (card: any) => void = () => {}
   public submission: (response: any) => void = () => {}
 
   private uuid (): string {
@@ -181,7 +182,7 @@ export default class Tokenizer {
           this.submission(data)
           break
         case 'validCard':
-          this.validCard(true)
+          this.validCard(data)
           break
         case 'setHeight':
           this.updateHeight(data.height)
