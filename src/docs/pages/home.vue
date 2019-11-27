@@ -8,7 +8,8 @@ export default Vue.extend({
   data () {
     return {
       example: (null as any),
-      exampleResponse: ''
+      exampleResponse: '',
+      validCard: (null as any)
     }
   },
   mounted () {
@@ -16,9 +17,7 @@ export default Vue.extend({
       apikey: testapikey,
       container: this.$refs.example as HTMLDivElement,
       submission: (resp: any) => { this.exampleResponse = resp },
-      validCard: (card: any) => {
-        console.log(card)
-      }
+      validCard: (card: any) => { this.validCard = card }
     })
   }
 })
