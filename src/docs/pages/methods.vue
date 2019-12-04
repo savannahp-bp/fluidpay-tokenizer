@@ -33,6 +33,11 @@ export default Vue.extend({
             console.log(card)
             // card.isValid // Boolean
             // card.bin // Object of bin data
+
+            // If you need to check if surchargable
+            // Pass state and card bin data
+            var isSurchargable = example.isSurchargable(state, card.bin)
+            console.log(isSurchargable)
           },
 
           // Callback after payment was submitted
