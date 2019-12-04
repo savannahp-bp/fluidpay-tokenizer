@@ -28,8 +28,10 @@ export default class Tokenizer {
     container: HTMLDivElement;
     settings: Settings;
     constructor(info: Constructor);
-    create(): void;
     validate(info: Constructor): void;
+    isSurchargable(state: string, bin: {
+        card_type: string;
+    }): boolean;
     submit(): void;
     setExpDate(expDate: string): void;
     postMessage(msg: Message): void;
