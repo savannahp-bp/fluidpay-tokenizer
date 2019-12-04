@@ -82,9 +82,6 @@ export default class Tokenizer {
     this.container.appendChild(this.iframe)
   }
 
-  // Only here because it used to exist
-  public create () { }
-
   public validate (info: Constructor) {
     let el: HTMLDivElement
     if (typeof info.container === 'string') {
@@ -93,6 +90,14 @@ export default class Tokenizer {
       el = info.container
     }
     if (!el) { throw new Error('Could not find container') }
+  }
+
+  public isSurchargable (state: string, bin: {card_type: string}): boolean {
+    const blacklist = ['CA', 'CO', 'CT', 'KS', 'ME', 'MA', 'OK']
+    if (state === '') { return false }
+    if (blacklist.indexOf(state.toUpperCase()) !== -1) { return false }
+    if (!bin || !bin.card_type || bin.card_type.toLowerCase() !== 'credit') { return false }
+    return true
   }
 
   // Post message to iframe
