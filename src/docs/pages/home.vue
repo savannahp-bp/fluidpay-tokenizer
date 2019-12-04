@@ -17,7 +17,11 @@ export default Vue.extend({
       apikey: testapikey,
       container: this.$refs.example as HTMLDivElement,
       submission: (resp: any) => { this.exampleResponse = resp },
-      validCard: (card: any) => { this.validCard = card }
+      validCard: (card: any) => {
+        this.validCard = card
+        // console.log(card.bin.card_type)
+        // console.log(this.example.isSurchargable('ia', card.bin))
+      }
     })
   }
 })
