@@ -82,6 +82,10 @@ export default class Tokenizer {
     this.container.appendChild(this.iframe)
   }
 
+  // Only here because it used originally here from the begining
+  // DO NOT REMOVE, some clients still call create even though it doesnt do anything anymore.
+  public create () { }
+
   public validate (info: Constructor) {
     let el: HTMLDivElement
     if (typeof info.container === 'string') {
