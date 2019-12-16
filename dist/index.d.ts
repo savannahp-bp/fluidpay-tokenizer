@@ -30,7 +30,7 @@ export default class Tokenizer {
     constructor(info: Constructor);
     create(): void;
     validate(info: Constructor): void;
-    isSurchargable(state: string, bin: {
+    isSurchargeable(state: string, bin: {
         card_type: string;
     }): boolean;
     submit(): void;
