@@ -96,7 +96,7 @@ export default class Tokenizer {
     if (!el) { throw new Error('Could not find container') }
   }
 
-  public isSurchargable (state: string, bin: {card_type: string}): boolean {
+  public isSurchargeable (state: string, bin: {card_type: string}): boolean {
     const blacklist = ['CA', 'CO', 'CT', 'KS', 'ME', 'MA', 'OK']
     if (state === '') { return false }
     if (blacklist.indexOf(state.toUpperCase()) !== -1) { return false }
