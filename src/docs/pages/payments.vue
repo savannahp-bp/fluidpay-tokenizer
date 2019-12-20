@@ -15,6 +15,9 @@ export default Vue.extend({
     this.example = new Tokenizer({
       apikey: testapikey,
       container: this.$refs.example as HTMLDivElement,
+      onPaymentChange: (type: string) => {
+        console.log(type)
+      },
       submission: (resp: any) => {
         this.exampleResponse = resp
       },
