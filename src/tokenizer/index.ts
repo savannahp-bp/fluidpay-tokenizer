@@ -24,7 +24,7 @@ const url = '{{formUrl}}'
 const localDevUrl: string = 'http://localhost:8082'
 const pathUrl: string = '/api/tokenizer'
 
-export default class Tokenizer {
+export class Tokenizer {
   public id: string
   public apikey: string
   public url: string
@@ -107,10 +107,10 @@ export default class Tokenizer {
   }
 
   // Post message to iframe
-  public submit () {
+  public submit (threeDS:boolean = false, amount:number = 0) {
     this.postMessage({
       event: 'submit',
-      data: {}
+      data: { threeDS: threeDS, amount: amount }
     })
   }
 

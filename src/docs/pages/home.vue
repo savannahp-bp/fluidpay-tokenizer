@@ -1,6 +1,6 @@
 <script lang="ts">
 import Vue from 'vue'
-import Tokenizer from '@/tokenizer'
+import { Tokenizer } from '@/tokenizer/index.ts'
 import testapikey from '@/docs/helpers/testapikey.ts'
 
 export default Vue.extend({
@@ -75,7 +75,7 @@ export default Vue.extend({
 
     <div class="section example">
       <div ref="example"></div>
-      <button @click="example.submit()">Pay</button>
+      <button @click="example.submit(true, 100)">Pay</button>
       <pre>{{exampleResponse}}</pre>
     </div>
   </div>

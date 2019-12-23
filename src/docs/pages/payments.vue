@@ -1,6 +1,6 @@
 <script lang="ts">
 import Vue from 'vue'
-import Tokenizer from '@/tokenizer'
+import { Tokenizer } from '@/tokenizer/index.ts'
 import testapikey from '@/docs/helpers/testapikey.ts'
 
 export default Vue.extend({
