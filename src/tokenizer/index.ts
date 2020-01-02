@@ -99,7 +99,7 @@ export default class Tokenizer {
   }
 
   public isSurchargeable (state: string, bin: {card_type: string}): boolean {
-    const blacklist = ['CA', 'CO', 'CT', 'KS', 'ME', 'MA', 'OK']
+    const blacklist = ['CO', 'CT', 'KS', 'ME', 'MA']
     if (state === '') { return false }
     if (blacklist.indexOf(state.toUpperCase()) !== -1) { return false }
     if (!bin || !bin.card_type || bin.card_type.toLowerCase() !== 'credit') { return false }
