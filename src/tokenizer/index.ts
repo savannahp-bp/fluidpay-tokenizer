@@ -24,7 +24,7 @@ const url = '{{formUrl}}'
 const localDevUrl: string = 'http://localhost:8082'
 const pathUrl: string = '/api/tokenizer'
 
-export class Tokenizer {
+export default class Tokenizer {
   public id: string
   public apikey: string
   public url: string
