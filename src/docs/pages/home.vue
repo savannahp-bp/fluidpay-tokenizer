@@ -62,6 +62,14 @@ export default Vue.extend({
         function submit() {
           example.submit() // Use submission callback to deal with response
         }
+
+        // Example submission with 3DS enabled
+        function submit() {
+          example.submit(
+            true, // 3DS enabled?
+            100 // Amount(in cents)
+          )
+        }
       </code>
     </pre>
 
@@ -70,6 +78,13 @@ export default Vue.extend({
         // Example Html
         &lt;div id="container"&gt;&lt;&#47;div&gt;
         &lt;button onclick="submit()"&gt;Submit&lt;&#47;button&gt;
+      </code>
+    </pre>
+    <pre>
+      <code class="language-html">
+        // Example Html with 3DS Enabled (CREDIT CARD ONLY)
+        &lt;div id="container"&gt;&lt;&#47;div&gt;
+        &lt;button onclick="submit(true, 100)"&gt;Submit&lt;&#47;button&gt;
       </code>
     </pre>
 

@@ -51,6 +51,9 @@ export default Vue.extend({
 
         // Submit payment
         example.submit()
+
+        // Submit payment with 3DS Enabled (CREDIT CARD ONLY)
+        example.submit(true, 100)
       </code>
     </pre>
   </div>
