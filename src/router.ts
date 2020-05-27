@@ -26,6 +26,10 @@ export default new VueRouter({
     {
       path: '/payments',
       component: () => import('@/docs/pages/payments.vue')
+    },
+    {
+      path: '/playground',
+      component: () => import('@/docs/pages/playground.vue')
     }
   ]
 })

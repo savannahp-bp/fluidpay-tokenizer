@@ -44,6 +44,7 @@ export default Vue.extend({})
       <router-link to="/styles">Styles</router-link>
       <router-link to="/sections">Sections</router-link>
       <router-link to="/payments">Payments</router-link>
+      <router-link to="/playground">Playground</router-link>
     </div>
   </div>
 </template>
