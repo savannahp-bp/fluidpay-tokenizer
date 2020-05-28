@@ -5,6 +5,8 @@ export interface Settings {
 export interface Constructor {
   url?: string
   apikey: string
+  paaykey?: string
+  amount?: string
   container: HTMLDivElement
   paymentTypes?: string[]
   onLoad?: () => void
@@ -27,10 +29,12 @@ const pathUrl: string = '/api/tokenizer'
 export default class Tokenizer {
   public id: string
   public apikey: string
+  public paaykey: string | undefined
+  public amount: string | undefined
   public url: string
   public iframe: HTMLIFrameElement
   public container: HTMLDivElement
-  public settings: Settings = { id: '', apikey: '' }
+  public settings: Settings = { id: '', apikey: '', paaykey: '', amount: '' }
 
   constructor (info: Constructor) {
     this.validate(info)
@@ -38,6 +42,16 @@ export default class Tokenizer {
     // Make sure apikey is set
     if (!info.apikey) { throw new Error('apikey must be set!') }
     this.apikey = info.apikey
+
+    // set paay key
+    if (info.paaykey) {
+      this.paaykey = info.paaykey
+    }
+
+    // set amount
+    if (info.amount) {
+      this.amount = info.amount
+    }
 
     // Set url
     this.url = info.url || url // Use constructor url passed, or default url var
@@ -76,6 +90,8 @@ export default class Tokenizer {
       // Send settings to iframe
       this.settings.id = this.id
       this.settings.apikey = this.apikey
+      this.settings.paaykey = this.paaykey
+      this.settings.amount = this.amount
       this.setSettings(this.settings)
       this.onLoad() // Call on load
     }

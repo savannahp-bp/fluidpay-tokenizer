@@ -28,8 +28,8 @@ export default new VueRouter({
       component: () => import('@/docs/pages/payments.vue')
     },
     {
-      path: '/playground',
-      component: () => import('@/docs/pages/playground.vue')
+      path: '/threeds',
+      component: () => import('@/docs/pages/threeds.vue')
     }
   ]
 })

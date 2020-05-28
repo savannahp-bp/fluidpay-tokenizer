@@ -4,11 +4,11 @@
       <fieldset class="fieldset">
         <img class="image" :src="img1">
         <label class="label">Item 1</label>
-        <input class="input" type="text" v-model="amount1">
+        <input class="input" type="text" v-model="amount">
       </fieldset>
     </div>
     <fieldset class="fieldset">
-      <label class="total">Total: ${{amount1}}</label>
+      <label class="total">Total: ${{amount}}</label>
     </fieldset>
     <div class="payment" ref="example"></div>
     <button type="button" class="button" @click="example.submit()">Checkout</button>
@@ -18,14 +18,14 @@
 <script lang="ts">
 import Vue from 'vue'
 import Tokenizer from '@/tokenizer'
-import testapikey from '@/docs/helpers/testapikey.ts'
+import { testapikey, testpaaykey } from '@/docs/helpers/testkeys.ts'
 export default Vue.extend({
-  name: 'playground',
+  name: 'threeds',
   data () {
     return {
       example: {} as any,
       img1: 'https://cdn.shopify.com/s/files/1/0533/2089/files/placeholder-images-product-5_large.png?format=jpg&quality=90&v=1530129458',
-      amount1: '1.00',
+      amount: '1.00',
       playground: {
         response: '',
         card: ''
@@ -35,6 +35,8 @@ export default Vue.extend({
   mounted () {
     this.example = new Tokenizer({
       apikey: testapikey,
+      paaykey: testpaaykey,
+      amount: this.amount,
       container: this.$refs.example as HTMLDivElement,
       submission: (resp: any) => { console.log(resp) }
     })
