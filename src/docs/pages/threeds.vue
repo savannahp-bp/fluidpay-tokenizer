@@ -2,7 +2,7 @@
   <main class="playground example">
     <div class="line-item">
       <fieldset class="fieldset">
-        <img class="image" :src="img1">
+        <img class="image" :src="img">
         <label class="label">Item 1</label>
         <input class="input" type="text" v-model="amount">
       </fieldset>
@@ -11,21 +11,21 @@
       <label class="total">Total: ${{amount}}</label>
     </fieldset>
     <div class="payment" ref="example"></div>
-    <button type="button" class="button" @click="example.submit()">Checkout</button>
+    <button type="button" class="button" @click="example.submit(amount)">Checkout</button>
   </main>
 </template>
 
 <script lang="ts">
 import Vue from 'vue'
 import Tokenizer from '@/tokenizer'
-import { testapikey, testpaaykey } from '@/docs/helpers/testkeys.ts'
+import { testapikey } from '@/docs/helpers/testkeys.ts'
 export default Vue.extend({
   name: 'threeds',
   data () {
     return {
       example: {} as any,
-      img1: 'https://cdn.shopify.com/s/files/1/0533/2089/files/placeholder-images-product-5_large.png?format=jpg&quality=90&v=1530129458',
-      amount: '1.00',
+      img: 'https://cdn.shopify.com/s/files/1/0533/2089/files/placeholder-images-product-5_large.png?format=jpg&quality=90&v=1530129458',
+      amount: '0.00',
       playground: {
         response: '',
         card: ''
@@ -35,10 +35,8 @@ export default Vue.extend({
   mounted () {
     this.example = new Tokenizer({
       apikey: testapikey,
-      paaykey: testpaaykey,
-      amount: this.amount,
       container: this.$refs.example as HTMLDivElement,
-      submission: (resp: any) => { console.log(resp) }
+      submission: (resp: any) => {}
     })
   }
 
