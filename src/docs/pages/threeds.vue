@@ -3,7 +3,7 @@
     <div class="line-item">
       <fieldset class="fieldset">
         <img class="image" :src="img">
-        <label class="label">Item 1</label>
+        <label class="label">Item</label>
         <input class="input" type="text" v-model="amount">
       </fieldset>
     </div>
@@ -12,6 +12,7 @@
     </fieldset>
     <div class="payment" ref="example"></div>
     <button type="button" class="button" @click="example.submit(amount)">Checkout</button>
+     <pre>Response: {{response}}</pre>
   </main>
 </template>
 
@@ -26,17 +27,16 @@ export default Vue.extend({
       example: {} as any,
       img: 'https://cdn.shopify.com/s/files/1/0533/2089/files/placeholder-images-product-5_large.png?format=jpg&quality=90&v=1530129458',
       amount: '0.00',
-      playground: {
-        response: '',
-        card: ''
-      }
+      response: '{}'
     }
   },
   mounted () {
     this.example = new Tokenizer({
       apikey: testapikey,
       container: this.$refs.example as HTMLDivElement,
-      submission: (resp: any) => {}
+      submission: (resp: any) => {
+        this.response = resp
+      }
     })
   }
 
@@ -87,6 +87,11 @@ export default Vue.extend({
         background:#999;
         cursor:pointer;
       }
+    }
+    pre {
+      background:#eee;
+      padding: 16px;
+      margin-top: 16px;
     }
   }
   .total {
