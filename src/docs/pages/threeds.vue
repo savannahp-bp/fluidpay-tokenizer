@@ -1,5 +1,26 @@
 <template>
-  <main class="playground example">
+  <div>
+    <pre>
+      <code class="language-javascript">
+        // Example Code
+        var example = new Tokenizer({
+          url: '', // optional - used only when on a different domain
+          apikey: '',
+          container: document.querySelector('.container'),
+          submission: (response) => {
+            console.log(response)
+          }
+        })
+
+        // Submission
+        example.submit('1.00')
+
+        // 3D-Secure requires an amount parameter of type string
+        // if no amount is passed 3D-Secure will not be triggered
+
+      </code>
+    </pre>
+  <div class="playground example">
     <div class="line-item">
       <fieldset class="fieldset">
         <img class="image" :src="img">
@@ -13,7 +34,8 @@
     <div class="payment" ref="example"></div>
     <button type="button" class="button" @click="example.submit(amount)">Checkout</button>
      <pre>Response: {{response}}</pre>
-  </main>
+    </div>
+  </div>
 </template>
 
 <script lang="ts">
