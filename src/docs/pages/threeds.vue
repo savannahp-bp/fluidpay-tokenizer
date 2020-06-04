@@ -21,7 +21,7 @@
       <code class="language-javascript">
         // State
         var state = {
-          amount: "1.00",
+          amount: "0.00",
           response: {}
         }
       </code>
