@@ -33,6 +33,7 @@
           // prevent duplicate submissions during 3D-Secure validation
           var button = document.querySelector('.tokenizer-button')
           button.disabled = true
+          // submit off to the tokenizer with the dollar amount
           tokenizer.submit(state.amount)
         }
       </code>
