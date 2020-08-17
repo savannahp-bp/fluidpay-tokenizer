@@ -22,7 +22,7 @@ function createConfig (target, filename) {
       ]
     },
     resolve: {
-      extensions: [ '.ts', '.js' ]
+      extensions: ['.ts', '.js']
     },
     output: {
       library: 'Tokenizer',
