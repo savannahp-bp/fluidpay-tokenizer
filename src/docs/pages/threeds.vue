@@ -41,7 +41,6 @@
   <div class="playground example">
     <div class="line-item">
       <fieldset class="fieldset">
-        <img class="image" :src="img">
         <label class="label">Item</label>
         <input class="input" type="text" v-model="amount">
       </fieldset>
@@ -65,7 +64,6 @@ export default Vue.extend({
   data () {
     return {
       example: {} as any,
-      img: 'https://cdn.shopify.com/s/files/1/0533/2089/files/placeholder-images-product-5_large.png?format=jpg&quality=90&v=1530129458',
       amount: '0.00',
       response: '{}'
     }
