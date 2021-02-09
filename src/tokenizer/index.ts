@@ -40,7 +40,7 @@ export default class Tokenizer {
     this.apikey = info.apikey
 
     // Set url
-    this.url = info.url || url // Use constructor url passed, or default url var
+    this.url = (info.url && info.url !== '' ? info.url : url) // Use constructor url passed, or default url var
     if (!info.url && window.location.href.indexOf('localhost') !== -1) {
       this.url = localDevUrl.replace(/\/$/, '') + pathUrl
     } else {
