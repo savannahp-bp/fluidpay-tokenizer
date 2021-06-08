@@ -48,7 +48,7 @@ export default class Tokenizer {
     }
 
     // Set url
-    this.url = info.url || url // Use constructor url passed, or default url var
+    this.url = (info.url && info.url !== '' ? info.url : url) // Use constructor url passed, or default url var
     if (!info.url && window.location.href.indexOf('localhost') !== -1) {
       this.url = localDevUrl.replace(/\/$/, '') + pathUrl
     } else {
@@ -108,7 +108,7 @@ export default class Tokenizer {
   }
 
   public isSurchargeable (state: string, bin: {card_type: string}): boolean {
-    const blacklist = ['CO', 'CT', 'KS', 'ME', 'MA']
+    const blacklist = ['CO', 'CT', 'ME', 'MA']
     if (state === '') { return false }
     if (blacklist.indexOf(state.toUpperCase()) !== -1) { return false }
     if (!bin || !bin.card_type || bin.card_type.toLowerCase() !== 'credit') { return false }
