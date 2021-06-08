@@ -1,64 +1,7 @@
-<template>
-  <div>
-    <pre>
-      <code class="language-javascript">
-        // Tokenizer
-        var tokenizer = new Tokenizer({
-          // url: Optional - used only when the domain does not match
-          apikey: "api_12345",
-          container: document.querySelector(".tokenizer-container"),
-          submission:(response) => {
-            // enable the button after getting a response
-            var button = document.querySelector('.tokenizer-button')
-            button.disabled = false
-            // set the response
-            state.response = response
-          }
-        });
-      </code>
-    </pre>
-    <pre>
-      <code class="language-javascript">
-        // State
-        var state = {
-          amount: "0.00",
-          response: {}
-        }
-      </code>
-    </pre>
-    <pre>
-      <code class="language-javascript">
-        // Submit
-        var submit = function() {
-          // prevent duplicate submissions during 3D-Secure validation
-          var button = document.querySelector('.tokenizer-button')
-          button.disabled = true
-          // submit off to the tokenizer with the dollar amount
-          tokenizer.submit(state.amount)
-        }
-      </code>
-    </pre>
-  <div class="playground example">
-    <div class="line-item">
-      <fieldset class="fieldset">
-        <label class="label">Item</label>
-        <input class="input" type="text" v-model="amount">
-      </fieldset>
-    </div>
-    <fieldset class="fieldset">
-      <label class="total">Total: ${{amount}}</label>
-    </fieldset>
-    <div class="payment" ref="example"></div>
-    <button id="submit" type="button" class="button" @click="submit(amount)">Checkout</button>
-     <pre>Response: {{response}}</pre>
-    </div>
-  </div>
-</template>
-
 <script lang="ts">
 import Vue from 'vue'
 import Tokenizer from '@/tokenizer'
-import { testapikey } from '@/docs/helpers/testkeys.ts'
+import { testapikey } from '@/docs/helpers/testkeys'
 export default Vue.extend({
   name: 'threeds',
   data () {
@@ -151,3 +94,60 @@ export default Vue.extend({
     font-weight: bold;
   }
 </style>
+
+<template>
+  <div>
+    <pre>
+      <code class="language-javascript">
+        // Tokenizer
+        var tokenizer = new Tokenizer({
+          // url: Optional - used only when the domain does not match
+          apikey: "api_12345",
+          container: document.querySelector(".tokenizer-container"),
+          submission:(response) => {
+            // enable the button after getting a response
+            var button = document.querySelector('.tokenizer-button')
+            button.disabled = false
+            // set the response
+            state.response = response
+          }
+        });
+      </code>
+    </pre>
+    <pre>
+      <code class="language-javascript">
+        // State
+        var state = {
+          amount: "0.00",
+          response: {}
+        }
+      </code>
+    </pre>
+    <pre>
+      <code class="language-javascript">
+        // Submit
+        var submit = function() {
+          // prevent duplicate submissions during 3D-Secure validation
+          var button = document.querySelector('.tokenizer-button')
+          button.disabled = true
+          // submit off to the tokenizer with the dollar amount
+          tokenizer.submit(state.amount)
+        }
+      </code>
+    </pre>
+  <div class="playground example">
+    <div class="line-item">
+      <fieldset class="fieldset">
+        <label class="label">Item</label>
+        <input class="input" type="text" v-model="amount">
+      </fieldset>
+    </div>
+    <fieldset class="fieldset">
+      <label class="total">Total: ${{amount}}</label>
+    </fieldset>
+    <div class="payment" ref="example"></div>
+    <button id="submit" type="button" class="button" @click="submit(amount)">Checkout</button>
+     <pre>Response: {{response}}</pre>
+    </div>
+  </div>
+</template>
