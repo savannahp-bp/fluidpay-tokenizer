@@ -10,7 +10,7 @@ export default Vue.extend({
 </script>
 
 <style lang="scss">
-  .methods {}
+  // .methods {}
 </style>
 
 <template>
