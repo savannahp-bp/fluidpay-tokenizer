@@ -4,6 +4,7 @@ export interface Settings {
 export interface Constructor {
     url?: string;
     apikey: string;
+    amount?: string;
     container: HTMLDivElement;
     paymentTypes?: string[];
     onLoad?: () => void;
@@ -24,6 +25,7 @@ export interface Message {
 export default class Tokenizer {
     id: string;
     apikey: string;
+    amount: string | undefined;
     url: string;
     iframe: HTMLIFrameElement;
     container: HTMLDivElement;
@@ -34,7 +36,7 @@ export default class Tokenizer {
     isSurchargeable(state: string, bin: {
         card_type: string;
     }): boolean;
-    submit(): void;
+    submit(amount: string): void;
     setExpDate(expDate: string): void;
     postMessage(msg: Message): void;
     onLoad: () => void;
