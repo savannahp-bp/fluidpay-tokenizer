@@ -26,6 +26,10 @@ export default new VueRouter({
     {
       path: '/payments',
       component: () => import('@/docs/pages/payments.vue')
+    },
+    {
+      path: '/threeds',
+      component: () => import('@/docs/pages/threeds.vue')
     }
   ]
 })

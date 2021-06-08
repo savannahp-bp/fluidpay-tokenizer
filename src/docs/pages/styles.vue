@@ -1,7 +1,7 @@
 <script lang="ts">
 import Vue from 'vue'
 import Tokenizer from '@/tokenizer'
-import testapikey from '@/docs/helpers/testapikey.ts'
+import { testapikey } from '@/docs/helpers/testkeys.ts'
 
 export default Vue.extend({
   name: 'Styles',
