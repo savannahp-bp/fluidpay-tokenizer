@@ -8,6 +8,7 @@ export interface Constructor {
   amount?: string
   container: HTMLDivElement
   paymentTypes?: string[]
+  paaySandbox?: boolean
   onLoad?: () => void
   onPaymentChange?: (type: string) => void
   validCard?: (valid: boolean) => void
@@ -29,11 +30,13 @@ export default class Tokenizer {
   public id: string
   public apikey: string
 
-  public amount: string | undefined
   public url: string
+  public amount: string | undefined
+  public paaySandbox: boolean
+
   public iframe: HTMLIFrameElement
   public container: HTMLDivElement
-  public settings: Settings = { id: '', apikey: '', amount: '' }
+  public settings: Settings = { id: '', apikey: '', amount: '', paaySandbox: false }
 
   constructor (info: Constructor) {
     this.validate(info)
@@ -41,11 +44,6 @@ export default class Tokenizer {
     // Make sure apikey is set
     if (!info.apikey) { throw new Error('apikey must be set!') }
     this.apikey = info.apikey
-
-    // set amount
-    if (info.amount) {
-      this.amount = info.amount
-    }
 
     // Set url
     this.url = (info.url && info.url !== '' ? info.url : url) // Use constructor url passed, or default url var
@@ -57,6 +55,17 @@ export default class Tokenizer {
 
     // Add apikey to url
     this.url += '/' + this.apikey
+
+    // set amount
+    if (info.amount) {
+      this.amount = info.amount
+    }
+
+    // Setting whether or not to send values to the paay sandbox endpoint
+    this.paaySandbox = false
+    if (info.paaySandbox) {
+      this.paaySandbox = info.paaySandbox
+    }
 
     // Set container
     let el: HTMLDivElement
@@ -85,6 +94,7 @@ export default class Tokenizer {
       this.settings.id = this.id
       this.settings.apikey = this.apikey
       this.settings.amount = this.amount
+      this.settings.paaySandbox = this.paaySandbox
       this.setSettings(this.settings)
       this.onLoad() // Call on load
     }
