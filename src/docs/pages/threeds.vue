@@ -7,13 +7,14 @@ export default Vue.extend({
   data () {
     return {
       example: {} as any,
-      amount: '0.00',
+      amount: '1.00',
       response: '{}'
     }
   },
   mounted () {
     this.example = new Tokenizer({
       apikey: testapikey,
+      paaySandbox: true,
       container: this.$refs.example as HTMLDivElement,
       submission: (resp: any) => {
         const btn = document.getElementById('submit') as HTMLButtonElement
@@ -103,6 +104,8 @@ export default Vue.extend({
         var tokenizer = new Tokenizer({
           // url: Optional - used only when the domain does not match
           apikey: "api_12345",
+          paaySandbox: true, // Optional - Set to true for testing purposes.
+                             // Dont set anything for production
           container: document.querySelector(".tokenizer-container"),
           submission:(response) => {
             // enable the button after getting a response
@@ -118,7 +121,7 @@ export default Vue.extend({
       <code class="language-javascript">
         // State
         var state = {
-          amount: "0.00",
+          amount: "1.00",
           response: {}
         }
       </code>
