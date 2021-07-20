@@ -1,9 +1,9 @@
 <script lang="ts">
-import Vue from 'vue'
+import { defineComponent } from 'vue'
 import Tokenizer from '@/tokenizer'
 import { testapikey } from '@/docs/helpers/testkeys'
 
-export default Vue.extend({
+export default defineComponent({
   name: 'Sections',
   data () {
     return {
@@ -106,9 +106,11 @@ export default Vue.extend({
     </pre>
 
     <div class="section exampleFull">
-      <div id="exampleFull"></div>
-      <button @click="exampleFull.submit()">Pay</button>
-      <pre>{{exampleFullResponse}}</pre>
+      <div id="exampleFull" />
+      <button @click="exampleFull.submit()">
+        Pay
+      </button>
+      <pre>{{ exampleFullResponse }}</pre>
     </div>
   </div>
 </template>

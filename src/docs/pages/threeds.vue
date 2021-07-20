@@ -1,9 +1,9 @@
 <script lang="ts">
-import Vue from 'vue'
+import { defineComponent } from 'vue'
 import Tokenizer from '@/tokenizer'
 import { testapikey } from '@/docs/helpers/testkeys'
-export default Vue.extend({
-  name: 'threeds',
+export default defineComponent({
+  name: 'Threeds',
   data () {
     return {
       example: {} as any,
@@ -141,14 +141,16 @@ export default Vue.extend({
     <div class="playground example">
       <div class="line-item">
         <label class="label">Item</label>
-        <input class="input" type="text" v-model="amount">
+        <input v-model="amount" class="input" type="text">
       </div>
       <fieldset class="fieldset">
-        <label class="total">Total: ${{amount}}</label>
+        <label class="total">Total: ${{ amount }}</label>
       </fieldset>
-      <div class="payment" ref="example"></div>
-      <button id="submit" type="button" class="button" @click="submit(amount)">Checkout</button>
-      <pre>Response: {{response}}</pre>
+      <div ref="example" class="payment" />
+      <button id="submit" type="button" class="button" @click="submit(amount)">
+        Checkout
+      </button>
+      <pre>Response: {{ response }}</pre>
     </div>
   </div>
 </template>

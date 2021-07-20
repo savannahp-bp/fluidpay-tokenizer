@@ -1,6 +1,6 @@
 <script lang="ts">
-import Vue from 'vue'
-export default Vue.extend({})
+import { defineComponent } from 'vue'
+export default defineComponent({})
 </script>
 
 <style lang="scss">
@@ -37,14 +37,28 @@ export default Vue.extend({})
 
 <template>
   <div class="header">
-    <div class="title">FluidPay Tokenizer Form</div>
+    <div class="title">
+      FluidPay Tokenizer Form
+    </div>
     <div class="menu">
-      <router-link to="/home">Home</router-link>
-      <router-link to="/methods">Methods</router-link>
-      <router-link to="/styles">Styles</router-link>
-      <router-link to="/sections">Sections</router-link>
-      <router-link to="/payments">Payments</router-link>
-      <router-link to="/threeds">3D-Secure</router-link>
+      <router-link to="/home">
+        Home
+      </router-link>
+      <router-link to="/methods">
+        Methods
+      </router-link>
+      <router-link to="/styles">
+        Styles
+      </router-link>
+      <router-link to="/sections">
+        Sections
+      </router-link>
+      <router-link to="/payments">
+        Payments
+      </router-link>
+      <router-link to="/threeds">
+        3D-Secure
+      </router-link>
     </div>
   </div>
 </template>
