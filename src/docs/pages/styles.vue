@@ -1,9 +1,9 @@
 <script lang="ts">
-import Vue from 'vue'
+import { defineComponent } from 'vue'
 import Tokenizer from '@/tokenizer'
 import { testapikey } from '@/docs/helpers/testkeys'
 
-export default Vue.extend({
+export default defineComponent({
   name: 'Styles',
   data () {
     return {
@@ -142,15 +142,19 @@ export default Vue.extend({
     </pre>
 
     <div class="section exampleBubble">
-      <div id="exampleBubble"></div>
-      <button @click="exampleBubble.submit()">Pay</button>
-      <pre>{{exampleBubbleResponse}}</pre>
+      <div id="exampleBubble" />
+      <button @click="exampleBubble.submit()">
+        Pay
+      </button>
+      <pre>{{ exampleBubbleResponse }}</pre>
     </div>
 
     <div class="section exampleLine">
-      <div id="exampleLine"></div>
-      <button @click="exampleLine.submit()">Pay</button>
-      <pre>{{exampleLineResponse}}</pre>
+      <div id="exampleLine" />
+      <button @click="exampleLine.submit()">
+        Pay
+      </button>
+      <pre>{{ exampleLineResponse }}</pre>
     </div>
   </div>
 </template>
