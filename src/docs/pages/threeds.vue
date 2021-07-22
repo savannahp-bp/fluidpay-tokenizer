@@ -108,33 +108,15 @@ export default defineComponent({
                              // Dont set anything for production
           container: document.querySelector(".tokenizer-container"),
           submission:(response) => {
-            // enable the button after getting a response
-            var button = document.querySelector('.tokenizer-button')
-            button.disabled = false
             // set the response
             state.response = response
           }
-        });
-      </code>
-    </pre>
-    <pre>
-      <code class="language-javascript">
-        // State
-        var state = {
-          amount: "1.00",
-          response: {}
-        }
-      </code>
-    </pre>
-    <pre>
-      <code class="language-javascript">
+        })
+
         // Submit
         var submit = function() {
-          // prevent duplicate submissions during 3D-Secure validation
-          var button = document.querySelector('.tokenizer-button')
-          button.disabled = true
           // submit off to the tokenizer with the dollar amount
-          tokenizer.submit(state.amount)
+          tokenizer.submit("1.00")
         }
       </code>
     </pre>
