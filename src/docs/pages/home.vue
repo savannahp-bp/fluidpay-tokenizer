@@ -75,7 +75,7 @@ export default defineComponent({
 
     <div class="section example">
       <div ref="example" />
-      <button @click="example.submit(1.00)">
+      <button @click="example.submit()">
         Pay
       </button>
       <pre>{{ exampleResponse }}</pre>
