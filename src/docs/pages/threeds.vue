@@ -18,7 +18,9 @@ export default defineComponent({
       container: this.$refs.example as HTMLDivElement,
       settings: {
         paay: {
-          sandbox: true
+          sandbox: true,
+          // forceDisabled: true,
+          rejectChallenges: []
         }
       },
       submission: (resp: any) => {
@@ -93,8 +95,10 @@ export default defineComponent({
           apikey: "api_12345",
           settings: {
             paay: {
-              sandbox: true // Optional - Set to true for testing purposes.
-                            // Dont set anything for production
+              sandbox: false,       // Set to true for testing purposes.
+              forceDisabled: false, // Force not running paay
+              rejectChallenges: []  // Statuses to reject from submission
+                                    // https://docs.3dsintegrator.com/docs/3ds-response-table-of-content
             }
           },
           container: document.querySelector(".tokenizer-container"),
