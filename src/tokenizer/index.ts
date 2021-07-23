@@ -7,8 +7,7 @@ export interface Constructor {
   apikey: string
   amount?: string
   container: HTMLDivElement
-  paymentTypes?: string[]
-  paaySandbox?: boolean
+
   onLoad?: () => void
   onPaymentChange?: (type: string) => void
   validCard?: (valid: boolean) => void
@@ -32,7 +31,6 @@ export default class Tokenizer {
 
   public url: string
   public amount: string | undefined
-  public paaySandbox: boolean
 
   public iframe: HTMLIFrameElement
   public container: HTMLDivElement
@@ -59,12 +57,6 @@ export default class Tokenizer {
     // set amount
     if (info.amount) {
       this.amount = info.amount
-    }
-
-    // Setting whether or not to send values to the paay sandbox endpoint
-    this.paaySandbox = false
-    if (info.paaySandbox) {
-      this.paaySandbox = info.paaySandbox
     }
 
     // Set container
@@ -94,7 +86,6 @@ export default class Tokenizer {
       this.settings.id = this.id
       this.settings.apikey = this.apikey
       this.settings.amount = this.amount
-      this.settings.paaySandbox = this.paaySandbox
       this.setSettings(this.settings)
       this.onLoad() // Call on load
     }

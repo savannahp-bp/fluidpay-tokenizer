@@ -6,8 +6,6 @@ export interface Constructor {
     apikey: string;
     amount?: string;
     container: HTMLDivElement;
-    paymentTypes?: string[];
-    paaySandbox?: boolean;
     onLoad?: () => void;
     onPaymentChange?: (type: string) => void;
     validCard?: (valid: boolean) => void;
@@ -28,7 +26,6 @@ export default class Tokenizer {
     apikey: string;
     url: string;
     amount: string | undefined;
-    paaySandbox: boolean;
     iframe: HTMLIFrameElement;
     container: HTMLDivElement;
     settings: Settings;

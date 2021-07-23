@@ -2,20 +2,27 @@
 import { defineComponent } from 'vue'
 import Tokenizer from '@/tokenizer'
 import { testapikey } from '@/docs/helpers/testkeys'
+
 export default defineComponent({
   name: 'Threeds',
   data () {
     return {
       example: {} as any,
       amount: '1.00',
-      response: '{}'
+      response: (null as null | any)
     }
   },
   mounted () {
     this.example = new Tokenizer({
       apikey: testapikey,
-      paaySandbox: true,
       container: this.$refs.example as HTMLDivElement,
+      settings: {
+        paay: {
+          sandbox: true,
+          // forceDisabled: true,
+          rejectChallenges: []
+        }
+      },
       submission: (resp: any) => {
         const btn = document.getElementById('submit') as HTMLButtonElement
         btn.disabled = false
@@ -44,10 +51,8 @@ export default defineComponent({
       display: flex;
       flex-direction: row;
       justify-content: space-between;
-      padding: 16px 0px 16px 0px;
+      padding: 8px 0px 8px 0px;
       width: 100%;
-      border-top: 1px solid #ddd;
-      border-bottom: 1px solid #ddd;
 
       .label {
         align-self: center;
@@ -62,36 +67,20 @@ export default defineComponent({
       }
     }
 
-    .button {
-      background: #aaa;
-      border-radius: 4px;
-      color: #fff;
-      margin-top: 8px;
-      padding: 8px 16px;
+    button {
+      cursor: pointer;
+      width: 100%;
+      height: 30px;
       font-weight: bold;
-
-      &:hover{
-        background: #999;
-        cursor: pointer;
-      }
-
-      &:disabled {
-        opacity: 0.25;
-      }
+      border: solid 1px #dcdee2;
+      border-radius: 4px;
+      background-color: #ffffff;
+      padding: 5px 8px 5px 8px;
     }
 
     pre {
-      background: #eee;
-      padding: 16px;
-      margin-top: 16px;
+      padding: 8px 0 0 0;
     }
-  }
-
-  .total {
-    display: block;
-    float: right;
-    margin: 16px 0px 16px 16px;
-    font-weight: bold;
   }
 }
 </style>
@@ -104,53 +93,38 @@ export default defineComponent({
         var tokenizer = new Tokenizer({
           // url: Optional - used only when the domain does not match
           apikey: "api_12345",
-          paaySandbox: true, // Optional - Set to true for testing purposes.
-                             // Dont set anything for production
+          settings: {
+            paay: {
+              sandbox: false,       // Set to true for testing purposes.
+              forceDisabled: false, // Force not running paay
+              rejectChallenges: []  // Statuses to reject from submission
+                                    // https://docs.3dsintegrator.com/docs/3ds-response-table-of-content
+            }
+          },
           container: document.querySelector(".tokenizer-container"),
-          submission:(response) => {
-            // enable the button after getting a response
-            var button = document.querySelector('.tokenizer-button')
-            button.disabled = false
+          submission: (response) => {
             // set the response
             state.response = response
           }
-        });
-      </code>
-    </pre>
-    <pre>
-      <code class="language-javascript">
-        // State
-        var state = {
-          amount: "1.00",
-          response: {}
-        }
-      </code>
-    </pre>
-    <pre>
-      <code class="language-javascript">
+        })
+
         // Submit
         var submit = function() {
-          // prevent duplicate submissions during 3D-Secure validation
-          var button = document.querySelector('.tokenizer-button')
-          button.disabled = true
           // submit off to the tokenizer with the dollar amount
-          tokenizer.submit(state.amount)
+          tokenizer.submit("1.00")
         }
       </code>
     </pre>
     <div class="playground example">
       <div class="line-item">
-        <label class="label">Item</label>
+        <label class="label">Amount</label>
         <input v-model="amount" class="input" type="text">
       </div>
-      <fieldset class="fieldset">
-        <label class="total">Total: ${{ amount }}</label>
-      </fieldset>
       <div ref="example" class="payment" />
       <button id="submit" type="button" class="button" @click="submit(amount)">
         Checkout
       </button>
-      <pre>Response: {{ response }}</pre>
+      <pre>{{ response }}</pre>
     </div>
   </div>
 </template>

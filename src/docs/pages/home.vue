@@ -8,7 +8,7 @@ export default defineComponent({
   data () {
     return {
       example: (null as any),
-      exampleResponse: '',
+      exampleResponse: (null as null | any),
       validCard: (null as any)
     }
   },
@@ -16,11 +16,11 @@ export default defineComponent({
     this.example = new Tokenizer({
       apikey: testapikey,
       container: this.$refs.example as HTMLDivElement,
-      submission: (resp: any) => { this.exampleResponse = resp },
+      submission: (resp: any) => { 
+        this.exampleResponse = resp
+      },
       validCard: (card: any) => {
         this.validCard = card
-        // console.log(card.bin.card_type)
-        // console.log(this.example.isSurchargable('ia', card.bin))
       }
     })
   }
@@ -39,6 +39,10 @@ export default defineComponent({
         border-radius: 4px;
         background-color: #ffffff;
         padding: 5px 8px 5px 8px;
+      }
+
+      pre {
+        padding: 8px 0 0 0;
       }
     }
   }
@@ -75,7 +79,7 @@ export default defineComponent({
 
     <div class="section example">
       <div ref="example" />
-      <button @click="example.submit(1.00)">
+      <button @click="example.submit()">
         Pay
       </button>
       <pre>{{ exampleResponse }}</pre>
