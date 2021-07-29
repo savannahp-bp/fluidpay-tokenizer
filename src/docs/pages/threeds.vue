@@ -20,7 +20,7 @@ export default defineComponent({
         paay: {
           sandbox: true,
           // forceDisabled: true,
-          rejectChallenges: []
+          // rejectChallenges: []
         }
       },
       submission: (resp: any) => {

@@ -34,7 +34,7 @@ export default class Tokenizer {
 
   public iframe: HTMLIFrameElement
   public container: HTMLDivElement
-  public settings: Settings = { id: '', apikey: '', amount: '', paaySandbox: false }
+  public settings: Settings = { id: '', apikey: '', amount: '' }
 
   constructor (info: Constructor) {
     this.validate(info)
